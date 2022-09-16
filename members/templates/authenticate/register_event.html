@@ -1,0 +1,56 @@
+{%  extends 'events/base.html' %}
+{% block content %}
+
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+		{% if registered == 1 %}
+		<h1>You already registered for this event</h1>
+		{% elif p_count == m_count %}
+		    <h1>Maximun participant's reached</h1>
+		{% else %}
+		
+
+			<form action="" method="POST">
+				{% csrf_token %}
+				
+				
+				{{ form.customer }}
+				{{ form.event_name }}
+				
+				
+				<h2>Fill the form below.</h2>
+				<br>
+				<p>
+				{{ form.name.label }}
+				{{ form.name }}
+				</p>
+				<p>
+				{{ form.Organization.label }}
+				{{ form.Organization }}
+				</p>
+				<p>
+				{{ form.phone.label }}
+				{{ form.phone }}
+				</p>
+				<p>
+				{{ form.email.label }}
+				{{ form.email }}
+				</p>
+				{% comment %} {% for field in form %}
+					{{field}}
+					<hr>
+				{% endfor %} {% endcomment %}
+				<p>To confirm your seat you must go to your profile, under your upcoming registered event section, you will find this event details. Click on Confirm Participation and change status to 'YES'</p>
+			
+				<input type="submit" name="Submit">
+			</form>
+			{% endif %}
+
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{%  extends 'events/base.html' %}
+
+{% block content %}
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    
+
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">All Upcoming Registered Event's</h1>
+        <p class="lead text-muted">These are the Event's you registered for</p>
+        
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <main>
+  <div class="album py-5 bg-light">
+    <div class="container">
+   
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      
+       {% for event in events.all %}
+              {% if event.event_name.Event_Title in list %}
+       
+       {% else %}
+        <div class="col">
+        <a href="{% url 'Event_details' event.event_name.id %}">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ event.event_name.Event_Banner.url }}">
+            <div class="card-body">
+              <p class="card-text">{{ event.event_name.Event_Title }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">{{event.event_name.category}}</small>
+              </div>
+
+            </div>
+          </div>
+          </a>
+        </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+        </main>
+
+         </body>
+{% endblock %}
