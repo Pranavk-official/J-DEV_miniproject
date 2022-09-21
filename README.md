@@ -9,8 +9,6 @@ An Event management system for the campus built using Django and Python
 `python3 -m venv /path/to/new/virtual/environment`
 #### 3. Activate the Virtual Environment
 ` source <path to venv>/bin/activate`
-#### 3. Install all the dependencies
-`pip install requirements.txt`
 
 ## How to Run
 ####  Run the server using the following command
